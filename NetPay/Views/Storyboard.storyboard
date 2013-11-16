@@ -4,24 +4,24 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Teams-->
+        <!--Teams View Controller - Teams-->
         <scene sceneID="9cr-VA-yTw">
             <objects>
-                <tableViewController id="PCW-Pr-wDo" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zym-8o-DuW">
+                <tableViewController id="PCW-Pr-wDo" customClass="NPTeamsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zym-8o-DuW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="iT0-fK-8Ms">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NPTeamsCellIdentifier" rowHeight="60" id="iT0-fK-8Ms" customClass="NPTeamCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iT0-fK-8Ms" id="9PY-rD-Emg">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgh-fI-fhp">
-                                            <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgh-fI-fhp">
+                                            <rect key="frame" x="10" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbe-py-xUb">
@@ -40,6 +40,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="iconImageView" destination="rgh-fI-fhp" id="ywl-3c-q8X"/>
                                     <segue destination="IBI-gI-7AS" kind="push" id="BRZ-Ce-viH"/>
                                 </connections>
                             </tableViewCell>
@@ -108,15 +109,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Punch in" id="qdz-oc-cD2"/>
-                                    <barButtonItem width="131" style="plain" systemItem="fixedSpace" id="N9A-Md-650"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zwL-2G-pAE"/>
                                     <barButtonItem title="Punch out" id="7LR-JT-ZTq"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tUD-V6-KG0"/>
+                                    <barButtonItem title="Edit" id="ea3-C2-fES"/>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="70e-ya-bLO">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="u5S-dp-wKD"/>
                         <barButtonItem key="rightBarButtonItem" title="Select all" id="Cf6-K8-9pm"/>
                     </navigationItem>
                 </viewController>

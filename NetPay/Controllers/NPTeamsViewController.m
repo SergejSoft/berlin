@@ -7,6 +7,7 @@
 //
 
 #import "NPTeamsViewController.h"
+#import "NPTeamCell.h"
 
 static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
@@ -18,7 +19,7 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -31,9 +32,10 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NPTeamsCellIdentifier forIndexPath:indexPath];
+    NPTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:NPTeamsCellIdentifier forIndexPath:indexPath];
 
-    
+    cell.iconImageView.image = [UIImage imageNamed:@"Construction"];
+
     return cell;
 }
 

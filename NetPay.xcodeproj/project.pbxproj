@@ -21,6 +21,8 @@
 		070B347318381B6800196086 /* NetPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B347218381B6800196086 /* NetPayTests.m */; };
 		070B347E18381DD900196086 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070B347D18381DD900196086 /* Storyboard.storyboard */; };
 		070B34851838258700196086 /* NPTeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B34841838258700196086 /* NPTeamsViewController.m */; };
+		073C1A591838294D000D14AE /* NPTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A581838294D000D14AE /* NPTeamCell.m */; };
+		47EBC9D2690C4D31AA92E300 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 282963F35C28419CA782DBE4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		070B347D18381DD900196086 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Views/Storyboard.storyboard; sourceTree = "<group>"; };
 		070B34831838258700196086 /* NPTeamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPTeamsViewController.h; path = Controllers/NPTeamsViewController.h; sourceTree = "<group>"; };
 		070B34841838258700196086 /* NPTeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamsViewController.m; path = Controllers/NPTeamsViewController.m; sourceTree = "<group>"; };
+		073C1A571838294D000D14AE /* NPTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPTeamCell.h; path = Views/NPTeamCell.h; sourceTree = "<group>"; };
+		073C1A581838294D000D14AE /* NPTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamCell.m; path = Views/NPTeamCell.m; sourceTree = "<group>"; };
+		282963F35C28419CA782DBE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1024C1E75534950BD170637 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 				070B345018381B6800196086 /* CoreGraphics.framework in Frameworks */,
 				070B345218381B6800196086 /* UIKit.framework in Frameworks */,
 				070B344E18381B6800196086 /* Foundation.framework in Frameworks */,
+				47EBC9D2690C4D31AA92E300 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +93,7 @@
 				070B346C18381B6800196086 /* NetPayTests */,
 				070B344C18381B6800196086 /* Frameworks */,
 				070B344B18381B6800196086 /* Products */,
+				B1024C1E75534950BD170637 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +113,7 @@
 				070B344F18381B6800196086 /* CoreGraphics.framework */,
 				070B345118381B6800196086 /* UIKit.framework */,
 				070B346618381B6800196086 /* XCTest.framework */,
+				282963F35C28419CA782DBE4 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				070B347D18381DD900196086 /* Storyboard.storyboard */,
+				073C1A571838294D000D14AE /* NPTeamCell.h */,
+				073C1A581838294D000D14AE /* NPTeamCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -175,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 070B347618381B6800196086 /* Build configuration list for PBXNativeTarget "NetPay" */;
 			buildPhases = (
+				FA5597AEEE9346968FA8E031 /* Check Pods Manifest.lock */,
 				070B344618381B6800196086 /* Sources */,
 				070B344718381B6800196086 /* Frameworks */,
 				070B344818381B6800196086 /* Resources */,
+				4AB511E39C4F4CAAAAE382B0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,11 +273,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AB511E39C4F4CAAAAE382B0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA5597AEEE9346968FA8E031 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		070B344618381B6800196086 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073C1A591838294D000D14AE /* NPTeamCell.m in Sources */,
 				070B345E18381B6800196086 /* NPAppDelegate.m in Sources */,
 				070B34851838258700196086 /* NPTeamsViewController.m in Sources */,
 				070B345A18381B6800196086 /* main.m in Sources */,
@@ -383,6 +430,7 @@
 		};
 		070B347718381B6800196086 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1024C1E75534950BD170637 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -396,6 +444,7 @@
 		};
 		070B347818381B6800196086 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1024C1E75534950BD170637 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -468,6 +517,7 @@
 				070B347818381B6800196086 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		070B347918381B6800196086 /* Build configuration list for PBXNativeTarget "NetPayTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +526,7 @@
 				070B347B18381B6800196086 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
