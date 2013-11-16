@@ -22,6 +22,7 @@
 		070B347E18381DD900196086 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070B347D18381DD900196086 /* Storyboard.storyboard */; };
 		070B34851838258700196086 /* NPTeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B34841838258700196086 /* NPTeamsViewController.m */; };
 		073C1A591838294D000D14AE /* NPTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A581838294D000D14AE /* NPTeamCell.m */; };
+		073C1A5C1838349E000D14AE /* UIColor+NPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A5B1838349E000D14AE /* UIColor+NPColors.m */; };
 		47EBC9D2690C4D31AA92E300 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 282963F35C28419CA782DBE4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,8 @@
 		070B34841838258700196086 /* NPTeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamsViewController.m; path = Controllers/NPTeamsViewController.m; sourceTree = "<group>"; };
 		073C1A571838294D000D14AE /* NPTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPTeamCell.h; path = Views/NPTeamCell.h; sourceTree = "<group>"; };
 		073C1A581838294D000D14AE /* NPTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamCell.m; path = Views/NPTeamCell.m; sourceTree = "<group>"; };
+		073C1A5A1838349E000D14AE /* UIColor+NPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+NPColors.h"; path = "Extensions/UIColor+NPColors.h"; sourceTree = "<group>"; };
+		073C1A5B1838349E000D14AE /* UIColor+NPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+NPColors.m"; path = "Extensions/UIColor+NPColors.m"; sourceTree = "<group>"; };
 		282963F35C28419CA782DBE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1024C1E75534950BD170637 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,7 @@
 				070B345D18381B6800196086 /* NPAppDelegate.m */,
 				070B345F18381B6800196086 /* Images.xcassets */,
 				070B345418381B6800196086 /* Supporting Files */,
+				073C1A5D183834A3000D14AE /* Extensions */,
 			);
 			path = NetPay;
 			sourceTree = "<group>";
@@ -177,6 +181,15 @@
 				070B34841838258700196086 /* NPTeamsViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		073C1A5D183834A3000D14AE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				073C1A5A1838349E000D14AE /* UIColor+NPColors.h */,
+				073C1A5B1838349E000D14AE /* UIColor+NPColors.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				073C1A591838294D000D14AE /* NPTeamCell.m in Sources */,
+				073C1A5C1838349E000D14AE /* UIColor+NPColors.m in Sources */,
 				070B345E18381B6800196086 /* NPAppDelegate.m in Sources */,
 				070B34851838258700196086 /* NPTeamsViewController.m in Sources */,
 				070B345A18381B6800196086 /* main.m in Sources */,
