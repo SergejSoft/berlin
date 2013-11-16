@@ -19,6 +19,7 @@
 		070B346918381B6800196086 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070B345118381B6800196086 /* UIKit.framework */; };
 		070B347118381B6800196086 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 070B346F18381B6800196086 /* InfoPlist.strings */; };
 		070B347318381B6800196086 /* NetPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B347218381B6800196086 /* NetPayTests.m */; };
+		070B347E18381DD900196086 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070B347D18381DD900196086 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		070B346E18381B6800196086 /* NetPayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetPayTests-Info.plist"; sourceTree = "<group>"; };
 		070B347018381B6800196086 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		070B347218381B6800196086 /* NetPayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetPayTests.m; sourceTree = "<group>"; };
+		070B347D18381DD900196086 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Views/Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		070B347C18381B7800196086 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				070B347D18381DD900196086 /* Storyboard.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				070B345818381B6800196086 /* InfoPlist.strings in Resources */,
 				070B346018381B6800196086 /* Images.xcassets in Resources */,
+				070B347E18381DD900196086 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
