@@ -45,10 +45,6 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
      }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [super prepareForSegue:segue sender:sender];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -59,6 +55,7 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
     NPTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:NPTeamsCellIdentifier forIndexPath:indexPath];
 
     cell.iconImageView.image = [UIImage imageNamed:@"Construction"];
+    cell.teamNameLabel.text = self.teamService.teams[indexPath.row][@"name"];
 
     return cell;
 }

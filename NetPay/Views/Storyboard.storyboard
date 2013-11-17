@@ -41,6 +41,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="iconImageView" destination="rgh-fI-fhp" id="ywl-3c-q8X"/>
+                                    <outlet property="teamNameLabel" destination="Mbe-py-xUb" id="J0V-b2-cjb"/>
                                     <segue destination="IBI-gI-7AS" kind="push" id="BRZ-Ce-viH"/>
                                 </connections>
                             </tableViewCell>
