@@ -26,6 +26,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+//    [self.tableView setEditing:YES animated:YES];
     self.employeeService = [NPEmployeeService sharedService];
     [self reloadEmployees];
 }
