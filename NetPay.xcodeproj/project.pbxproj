@@ -23,6 +23,8 @@
 		070B34851838258700196086 /* NPTeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B34841838258700196086 /* NPTeamsViewController.m */; };
 		073C1A591838294D000D14AE /* NPTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A581838294D000D14AE /* NPTeamCell.m */; };
 		073C1A5C1838349E000D14AE /* UIColor+NPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A5B1838349E000D14AE /* UIColor+NPColors.m */; };
+		073C1A5F1838371F000D14AE /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073C1A5E1838371F000D14AE /* WindowsAzureMobileServices.framework */; };
+		073C1A6318383A4D000D14AE /* NPTeamService.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A6218383A4D000D14AE /* NPTeamService.m */; };
 		47EBC9D2690C4D31AA92E300 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 282963F35C28419CA782DBE4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,9 @@
 		073C1A581838294D000D14AE /* NPTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamCell.m; path = Views/NPTeamCell.m; sourceTree = "<group>"; };
 		073C1A5A1838349E000D14AE /* UIColor+NPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+NPColors.h"; path = "Extensions/UIColor+NPColors.h"; sourceTree = "<group>"; };
 		073C1A5B1838349E000D14AE /* UIColor+NPColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+NPColors.m"; path = "Extensions/UIColor+NPColors.m"; sourceTree = "<group>"; };
+		073C1A5E1838371F000D14AE /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
+		073C1A6118383A4D000D14AE /* NPTeamService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPTeamService.h; path = Services/NPTeamService.h; sourceTree = "<group>"; };
+		073C1A6218383A4D000D14AE /* NPTeamService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamService.m; path = Services/NPTeamService.m; sourceTree = "<group>"; };
 		282963F35C28419CA782DBE4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1024C1E75534950BD170637 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +78,7 @@
 				070B345218381B6800196086 /* UIKit.framework in Frameworks */,
 				070B344E18381B6800196086 /* Foundation.framework in Frameworks */,
 				47EBC9D2690C4D31AA92E300 /* libPods.a in Frameworks */,
+				073C1A5F1838371F000D14AE /* WindowsAzureMobileServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,7 @@
 		070B344C18381B6800196086 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				073C1A5E1838371F000D14AE /* WindowsAzureMobileServices.framework */,
 				070B344D18381B6800196086 /* Foundation.framework */,
 				070B344F18381B6800196086 /* CoreGraphics.framework */,
 				070B345118381B6800196086 /* UIKit.framework */,
@@ -124,6 +131,7 @@
 		070B345318381B6800196086 /* NetPay */ = {
 			isa = PBXGroup;
 			children = (
+				073C1A6018383A2D000D14AE /* Services */,
 				070B347F1838243400196086 /* Controllers */,
 				070B347C18381B7800196086 /* Views */,
 				070B345C18381B6800196086 /* NPAppDelegate.h */,
@@ -190,6 +198,15 @@
 				073C1A5B1838349E000D14AE /* UIColor+NPColors.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		073C1A6018383A2D000D14AE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				073C1A6118383A4D000D14AE /* NPTeamService.h */,
+				073C1A6218383A4D000D14AE /* NPTeamService.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073C1A6318383A4D000D14AE /* NPTeamService.m in Sources */,
 				073C1A591838294D000D14AE /* NPTeamCell.m in Sources */,
 				073C1A5C1838349E000D14AE /* UIColor+NPColors.m in Sources */,
 				070B345E18381B6800196086 /* NPAppDelegate.m in Sources */,
@@ -448,6 +466,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jurre/code/NetPay,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetPay/NetPay-Prefix.pch";
 				INFOPLIST_FILE = "NetPay/NetPay-Info.plist";
@@ -462,6 +484,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jurre/code/NetPay,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetPay/NetPay-Prefix.pch";
 				INFOPLIST_FILE = "NetPay/NetPay-Info.plist";

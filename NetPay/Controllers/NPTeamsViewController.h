@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NPTeamService.h"
 
 @interface NPTeamsViewController : UITableViewController
+
+@property (nonatomic, strong) NPTeamService *teamService;
 
 @end

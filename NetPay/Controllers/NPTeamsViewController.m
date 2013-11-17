@@ -20,15 +20,38 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.teamService = [NPTeamService sharedService];
+
+    MSClient *client = self.teamService.client;
+
+
+    if (client.currentUser != nil) {
+        return;
+    }
+
+
+    [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+        [self refresh];
+    }];
+
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
+- (void) refresh {
+    [self.refreshControl beginRefreshing];
+    [self.teamService refreshDataOnSuccess:^{
+             [self.refreshControl endRefreshing];
+         [self.tableView reloadData];
+     }];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.teamService.teams count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
