@@ -8,6 +8,7 @@
 
 #import "NPAddTeamViewController.h"
 #import <NSData+Base64/NSData+Base64.h>
+#import <CSNotificationView/CSNotificationView.h>
 
 @interface NPAddTeamViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -43,13 +44,13 @@
                            @"imageData" : imageData
                            };
 
+    __weak NPAddTeamViewController *weakSelf = self;
     [self.teamService addItem:team completion:^(NSUInteger index) {
-    //
-    }];
+        weakSelf.teamNameTextField.text = @"";
+        weakSelf.imageView.image = nil;
 
-    self.teamNameTextField.text = @"";
-    self.imageView.image = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 
@@ -73,6 +74,7 @@
     UIGraphicsEndImageContext();
 
     self.imageView.image = small;
+
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
