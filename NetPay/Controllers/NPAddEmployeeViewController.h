@@ -10,4 +10,13 @@
 
 @interface NPAddEmployeeViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger teamId;
+
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *hourlyRateTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+
 @end

@@ -42,7 +42,7 @@
                                 <connections>
                                     <outlet property="iconImageView" destination="rgh-fI-fhp" id="ywl-3c-q8X"/>
                                     <outlet property="teamNameLabel" destination="Mbe-py-xUb" id="J0V-b2-cjb"/>
-                                    <segue destination="IBI-gI-7AS" kind="push" id="BRZ-Ce-viH"/>
+                                    <segue destination="IBI-gI-7AS" kind="push" identifier="NPTeamSelectionSegue" id="BRZ-Ce-viH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -117,16 +117,27 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a team" id="KuI-1y-T4U">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="wCv-2g-zMG"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="MEq-W1-PIO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okz-8t-fXb">
-                                <rect key="frame" x="274" y="7" width="30" height="30"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="QuV-l1-Nnn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K9e-zu-UaL">
+                                <rect key="frame" x="16" y="7" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add">
+                                <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addButtonTapped:" destination="mVu-d2-Sso" eventType="touchUpInside" id="jh6-kv-pHr"/>
+                                    <action selector="cancelButtonTapped:" destination="mVu-d2-Sso" eventType="touchUpInside" id="oUv-Td-y2y"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="hQu-er-hWp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bcy-0t-NM7">
+                                <rect key="frame" x="270" y="7" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="mVu-d2-Sso" eventType="touchUpInside" id="Jls-5e-nme"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -155,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="922" y="-628"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Employee View Controller-->
         <scene sceneID="X81-do-FYs">
             <objects>
-                <viewController id="Zzx-Xw-eS8" sceneMemberID="viewController">
+                <viewController id="Zzx-Xw-eS8" customClass="NPAddEmployeeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uup-xc-KJh"/>
                         <viewControllerLayoutGuide type="bottom" id="7U7-4D-Pie"/>
@@ -167,46 +178,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnS-d1-IBM">
-                                <rect key="frame" x="20" y="110" width="126" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnS-d1-IBM">
+                                <rect key="frame" x="20" y="101" width="126" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hourly rate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ft8-8G-vZj">
-                                <rect key="frame" x="20" y="217" width="126" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="13" borderStyle="roundedRect" placeholder="Hourly rate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ft8-8G-vZj">
+                                <rect key="frame" x="20" y="245" width="126" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yme-4o-Sbc">
-                                <rect key="frame" x="162" y="110" width="138" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Doe" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yme-4o-Sbc">
+                                <rect key="frame" x="162" y="101" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paypal Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-4Z-3me">
-                                <rect key="frame" x="20" y="166" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="jurrestender@hotmail.com" borderStyle="roundedRect" placeholder="Paypal Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-4Z-3me">
+                                <rect key="frame" x="20" y="194" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+31653617972" borderStyle="roundedRect" placeholder="Phone nr." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLx-OP-ZgL">
+                                <rect key="frame" x="20" y="148" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFE-W7-FXG">
+                                <rect key="frame" x="210" y="245" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Profile Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addProfileImageButtonTapped:" destination="Zzx-Xw-eS8" eventType="touchUpInside" id="eQP-OK-79z"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q75-Vj-YE1">
+                                <rect key="frame" x="15" y="306" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="KHY-qZ-NCq">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="vJU-Xs-A2A"/>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="Mg9-hw-q7b"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="u5K-wQ-flU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DYo-Dm-2he">
+                                <rect key="frame" x="16" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="Zzx-Xw-eS8" eventType="touchUpInside" id="vg8-vw-05F"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Jgy-X9-Ap7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bHV-1F-Yz5">
+                                <rect key="frame" x="270" y="7" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="Zzx-Xw-eS8" eventType="touchUpInside" id="qpe-qf-kn6"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="QfP-4Z-3me" id="euE-fW-nXV"/>
+                        <outlet property="firstNameTextField" destination="mnS-d1-IBM" id="I8P-td-ZMK"/>
+                        <outlet property="hourlyRateTextField" destination="ft8-8G-vZj" id="rXG-0y-bvt"/>
+                        <outlet property="lastNameTextField" destination="Yme-4o-Sbc" id="17x-WG-Xv2"/>
+                        <outlet property="phoneNumberTextField" destination="pLx-OP-ZgL" id="XUm-U9-rLC"/>
+                        <outlet property="profileImageView" destination="Q75-Vj-YE1" id="1ak-uD-UVy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCp-RO-sJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1411" y="-628"/>
         </scene>
-        <!--View Controller-->
+        <!--Team View Controller-->
         <scene sceneID="XXO-Lg-EAa">
             <objects>
-                <viewController id="IBI-gI-7AS" sceneMemberID="viewController">
+                <viewController id="IBI-gI-7AS" customClass="NPTeamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NNG-mC-4Wt"/>
                         <viewControllerLayoutGuide type="bottom" id="tAP-QZ-0ef"/>
@@ -272,10 +333,13 @@
                     <navigationItem key="navigationItem" id="70e-ya-bLO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cf6-K8-9pm">
                             <connections>
-                                <segue destination="Mnt-fI-diy" kind="modal" id="bPH-WO-6th"/>
+                                <segue destination="Mnt-fI-diy" kind="modal" identifier="NPAddEmployeeSegue" id="bPH-WO-6th"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="EEI-j5-qXH" id="ayC-Q8-q76"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91r-72-9Ms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

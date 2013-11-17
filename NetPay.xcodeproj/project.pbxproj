@@ -22,6 +22,8 @@
 		070B347E18381DD900196086 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070B347D18381DD900196086 /* Storyboard.storyboard */; };
 		070B34851838258700196086 /* NPTeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 070B34841838258700196086 /* NPTeamsViewController.m */; };
 		071B6CC11838A10E003BDA5D /* NPAddEmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B6CC01838A10D003BDA5D /* NPAddEmployeeViewController.m */; };
+		071B6CC41838B1F2003BDA5D /* NPEmployeeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B6CC31838B1F2003BDA5D /* NPEmployeeService.m */; };
+		071B6CC71838B435003BDA5D /* NPBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B6CC61838B435003BDA5D /* NPBaseService.m */; };
 		073C1A591838294D000D14AE /* NPTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A581838294D000D14AE /* NPTeamCell.m */; };
 		073C1A5C1838349E000D14AE /* UIColor+NPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 073C1A5B1838349E000D14AE /* UIColor+NPColors.m */; };
 		073C1A5F1838371F000D14AE /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073C1A5E1838371F000D14AE /* WindowsAzureMobileServices.framework */; };
@@ -63,6 +65,10 @@
 		070B34841838258700196086 /* NPTeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamsViewController.m; path = Controllers/NPTeamsViewController.m; sourceTree = "<group>"; };
 		071B6CBF1838A10D003BDA5D /* NPAddEmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPAddEmployeeViewController.h; path = Controllers/NPAddEmployeeViewController.h; sourceTree = "<group>"; };
 		071B6CC01838A10D003BDA5D /* NPAddEmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPAddEmployeeViewController.m; path = Controllers/NPAddEmployeeViewController.m; sourceTree = "<group>"; };
+		071B6CC21838B1F2003BDA5D /* NPEmployeeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPEmployeeService.h; path = Services/NPEmployeeService.h; sourceTree = "<group>"; };
+		071B6CC31838B1F2003BDA5D /* NPEmployeeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPEmployeeService.m; path = Services/NPEmployeeService.m; sourceTree = "<group>"; };
+		071B6CC51838B435003BDA5D /* NPBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPBaseService.h; path = Services/NPBaseService.h; sourceTree = "<group>"; };
+		071B6CC61838B435003BDA5D /* NPBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPBaseService.m; path = Services/NPBaseService.m; sourceTree = "<group>"; };
 		073C1A571838294D000D14AE /* NPTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPTeamCell.h; path = Views/NPTeamCell.h; sourceTree = "<group>"; };
 		073C1A581838294D000D14AE /* NPTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPTeamCell.m; path = Views/NPTeamCell.m; sourceTree = "<group>"; };
 		073C1A5A1838349E000D14AE /* UIColor+NPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+NPColors.h"; path = "Extensions/UIColor+NPColors.h"; sourceTree = "<group>"; };
@@ -220,6 +226,10 @@
 			children = (
 				073C1A6118383A4D000D14AE /* NPTeamService.h */,
 				073C1A6218383A4D000D14AE /* NPTeamService.m */,
+				071B6CC21838B1F2003BDA5D /* NPEmployeeService.h */,
+				071B6CC31838B1F2003BDA5D /* NPEmployeeService.m */,
+				071B6CC51838B435003BDA5D /* NPBaseService.h */,
+				071B6CC61838B435003BDA5D /* NPBaseService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -363,8 +373,10 @@
 				070B345E18381B6800196086 /* NPAppDelegate.m in Sources */,
 				071B6CC11838A10E003BDA5D /* NPAddEmployeeViewController.m in Sources */,
 				073C1A6918387608000D14AE /* NPTeamViewController.m in Sources */,
+				071B6CC71838B435003BDA5D /* NPBaseService.m in Sources */,
 				070B34851838258700196086 /* NPTeamsViewController.m in Sources */,
 				070B345A18381B6800196086 /* main.m in Sources */,
+				071B6CC41838B1F2003BDA5D /* NPEmployeeService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

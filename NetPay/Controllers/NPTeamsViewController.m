@@ -8,8 +8,9 @@
 
 #import "NPTeamsViewController.h"
 #import "NPTeamCell.h"
-#import <SSKeychain/SSKeychain.h>
 #import <NSData+Base64/NSData+Base64.h>
+#import <SSKeychain/SSKeychain.h>
+#import "NPTeamViewController.h"
 
 static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
@@ -29,10 +30,8 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
     MSClient *client = self.teamService.client;
 
     if (client.currentUser != nil) {
-        return;
-    } else if ([self currentUser]) {
-        self.teamService.client.currentUser = [self currentUser];
         [self refresh];
+        return;
     } else {
         [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
             [SSKeychain setPassword:user.userId forService:@"NetPay" account:@"userId"];
@@ -42,26 +41,20 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
     }
 }
 
-- (MSUser *)currentUser {
-    NSString *userId = [SSKeychain passwordForService:@"NetPay" account:@"userId"];
-    NSString *authToken = [SSKeychain passwordForService:@"NetPay" account:@"authToken"];
-
-    if (userId && authToken) {
-        MSUser *user = [[MSUser alloc] initWithUserId:userId];
-        user.mobileServiceAuthenticationToken = authToken;
-        return user;
-    } else {
-        return nil;
-    }
-}
-
 
 - (void) refresh {
     [self.refreshControl beginRefreshing];
-    [self.teamService refreshDataOnSuccess:^{
+    [self.teamService refreshDataWithCompletion:^{
          [self.refreshControl endRefreshing];
          [self.tableView reloadData];
      }];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"NPTeamSelectionSegue"]) {
+        ((NPTeamViewController *)segue.destinationViewController).team = self.teamService.teams[[self.tableView indexPathForSelectedRow].row];
+    }
 }
 
 #pragma mark - Table view data source

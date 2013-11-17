@@ -61,12 +61,17 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark -
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - UIImagePickerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
 
-    CGSize newSize = CGSizeMake(400, 400);
+    CGSize newSize = CGSizeMake(128, 128);
 
     UIGraphicsBeginImageContext(newSize);
     [image drawInRect:CGRectMake(0,0, newSize.width, newSize.height)];

@@ -10,4 +10,7 @@
 
 @interface NPTeamViewController : UIViewController
 
+@property (nonatomic, strong) NSDictionary *team;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
