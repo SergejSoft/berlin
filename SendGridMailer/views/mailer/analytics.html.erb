@@ -1,16 +1,10 @@
-Dear Project Owner,
+<h2>Dear Project Owner</h2>
 
-Here is your weekly performance analyses.
+<p>Here is your weekly performance analysis.</p>
 
-Payout: Your Team $A$ daily's pay out is $xxx$
-Occupancy: In Team $A$ you have currently $xx$ employees.
-Attendance: In Team $A$ $xx%$ showed up to work.
-Target:  In Team $A$, $xx%$ of employees managed to achieve daily targets.
-Team performance: Team $A$: Target $A$;
-      Team $B$: Target $A$;
-      Team $C$: Target $A$;
-      Team $D$: Target $A$;
+<p>Payout: Your Team <%= @analytics["team_name"] %> daily's pay out is <%= @analytics["pay_out"] %></p>
+<p>Occupancy: In Team <%= @analytics["team_name"] %> you have currently <%= @analytics["employee_count"] %> employees.</p>
+Attendance: In Team <%= "#{@analytics["team_name"]} #{@analytics["attendance"]}" showed up to work.</p>
+Target: <%= @analytics[@"target_met"] %>% of employees managed to achieve daily targets.
 
 Thank you for using Net Pay!
-You just saved $xx$ (Number of Workers x 20 min of your time) by using Net Pay!
-

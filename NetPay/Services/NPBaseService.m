@@ -31,7 +31,6 @@
 }
 
 - (void)setupClient {
-    // Initialize the Mobile Service client with your URL and key
     _client = [MSClient clientWithApplicationURLString:@"https://net-pay.azure-mobile.net/"
                                         applicationKey:@"ulFzFpCbypfvUqRBUVmYkDjfecIlwR29"];
 
@@ -43,7 +42,6 @@
 }
 
 - (void)busy:(BOOL)busy {
-    // assumes always executes on UI thread
     if (busy) {
         if (self.busyCount == 0 && self.busyUpdate != nil) {
             self.busyUpdate(YES);
