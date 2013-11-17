@@ -51,18 +51,16 @@ static NSString *const NPTableNameTeams = @"Teams";
 }
 
 - (void)refreshDataOnSuccess:(NPCompletionBlock)completion {
-    // Create a predicate that finds items where complete is false
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
     // Query the TodoItem table and update the items property with the results from the service
-    [self.table readWithPredicate:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error) {
-         [self logErrorIfNotNil:error];
+    [self.table readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
+        [self logErrorIfNotNil:error];
 
-         self.teams = [results mutableCopy];
+        self.teams = [items mutableCopy];
 
-         // Let the caller know that we finished
-         completion();
-     }];
+        // Let the caller know that we finished
+        completion();
+    }];
 }
 
 - (void)addItem:(NSDictionary *)item completion:(NPCompletionWithIndexBlock)completion {

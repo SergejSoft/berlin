@@ -14,25 +14,27 @@
 
 @implementation NPAddTeamViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.teamService = [NPTeamService sharedService];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)addButtonTapped:(id)sender {
+    if (self.teamNameTextField.text == nil || self.teamNameTextField.text.length == 0) {
+        return;
+    }
+
+    NSDictionary *team = @{
+                           @"name" : self.teamNameTextField.text,
+                           @"type" : @"construction"
+                           };
+
+    [self.teamService addItem:team completion:^(NSUInteger index) {
+    //
+    }];
+
+    self.teamNameTextField.text = @"";
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

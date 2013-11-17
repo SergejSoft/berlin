@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NPTeamService.h"
 
 @interface NPAddTeamViewController : UIViewController
+
+@property (nonatomic, strong) NPTeamService *teamService;
+@property (weak, nonatomic) IBOutlet UITextField *teamNameTextField;
+
+- (IBAction)addButtonTapped:(id)sender;
 
 @end

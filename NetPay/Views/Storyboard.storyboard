@@ -46,11 +46,81 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Teams" id="1jL-SR-IcT"/>
+                    <navigationItem key="navigationItem" title="Teams" id="1jL-SR-IcT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZZJ-g1-aY2">
+                            <connections>
+                                <segue destination="j6b-8X-2pZ" kind="modal" id="99a-59-Dpz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCq-Tm-IYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="401" y="66"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KFE-lm-f3s">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="j6b-8X-2pZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gZB-WT-UhQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mVu-d2-Sso" kind="relationship" relationship="rootViewController" id="xe0-6I-p13"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppg-Lf-Zk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="-628"/>
+        </scene>
+        <!--Add Team View Controller - Add a team-->
+        <scene sceneID="2QC-Hb-fW6">
+            <objects>
+                <viewController id="mVu-d2-Sso" customClass="NPAddTeamViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zc1-lz-3W5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fmg-jm-Mow"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4ct-EV-V2Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Fl-9Y-RSa">
+                                <rect key="frame" x="20" y="115" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCi-Ar-GxQ">
+                                <rect key="frame" x="22" y="86" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okz-8t-fXb">
+                                <rect key="frame" x="254" y="153" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="mVu-d2-Sso" eventType="touchUpInside" id="jh6-kv-pHr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a team" id="KuI-1y-T4U">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="wCv-2g-zMG"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="teamNameTextField" destination="1Fl-9Y-RSa" id="7na-8b-0kP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MeV-F6-D5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="-628"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XXO-Lg-EAa">
