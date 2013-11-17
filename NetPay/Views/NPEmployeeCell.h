@@ -12,5 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *profileImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UIStepper *stepper;
+@property (weak, nonatomic) IBOutlet UILabel *hoursWorkedLabel;
 
 @end

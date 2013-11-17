@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSArray *employees;
 @property (nonatomic, strong) NPEmployeeService *employeeService;
+@property (nonatomic, strong) NSArray *payments;
 
 @end
 
@@ -45,6 +46,27 @@
     }
 }
 
+- (IBAction)stepperValueDidChange:(UIStepper *)sender {
+    NPEmployeeCell *cell = (NPEmployeeCell *)[[[sender superview] superview] superview];
+    NSInteger hour = (NSInteger)floor(sender.value) / 60;
+    NSInteger min = ((NSInteger)floor(roundf(sender.value))) % 60;
+
+    cell.hoursWorkedLabel.text = [NSString stringWithFormat:@"%d:%02d", hour, min];
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+}
+
+
+- (IBAction)selectAllButtonTapped:(id)sender {
+}
+
+- (IBAction)deselectAllButtonTapped:(id)sender {
+}
+
+
+- (IBAction)payButtonTapped:(id)sender {
+}
+
+
 #pragma mark - UITableViewDelegate/Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -56,6 +78,7 @@
 
     NSDictionary *employee = self.employees[indexPath.row];
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", employee[@"firstName"], employee[@"lastName"]];
+    cell.stepper.transform = CGAffineTransformMakeScale(0.75, 0.75);
     if (![(NSNull *)employee[@"profileImage"] isEqual:[NSNull null]]) {;
         CALayer *layer = [cell.profileImageView layer];
         [layer setMasksToBounds:YES];
