@@ -28,8 +28,26 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    [self.tableView setEditing:YES animated:YES];
+    self.tableView.tableHeaderView = ({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 26.0f)];
+
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 1, 320, 24)];
+        label.text = @"                 Name               Hours   Target"; //lol
+        label.textAlignment = NSTextAlignmentLeft;
+        label.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+        label.backgroundColor = [UIColor grayColor];
+        label.textColor = [UIColor whiteColor];
+        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        [view addSubview:label];
+        view;
+    });
+
     self.employeeService = [NPEmployeeService sharedService];
+    [self reloadEmployees];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self reloadEmployees];
 }
 
@@ -54,7 +72,7 @@
     NSInteger hour = (NSInteger)floor(sender.value) / 60;
     NSInteger min = ((NSInteger)floor(roundf(sender.value))) % 60;
 
-    cell.hoursWorkedLabel.text = [NSString stringWithFormat:@"%ld:%02ld", (long)hour, (long)min];
+    cell.hoursWorkedLabel.text = [NSString stringWithFormat:@"%ld:%02ldh", (long)hour, (long)min];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSDictionary *employee = self.employees[indexPath.row];
     [employee setValue:@(sender.value) forKey:@"minutesWorked"];
@@ -87,6 +105,11 @@
     }
 }
 
+- (IBAction)targetMetButtonTapped:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    sender.alpha = sender.selected ? 1.0f : 0.5f;
+    
+}
 
 #pragma mark - UITableViewDelegate/Datasource
 

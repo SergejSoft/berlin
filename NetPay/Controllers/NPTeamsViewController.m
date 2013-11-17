@@ -22,7 +22,7 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.teamService = [NPTeamService sharedService];
 
     [self refresh];
@@ -41,8 +41,13 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self refresh];
+}
 
-- (void) refresh {
+
+- (void)refresh {
     [self.refreshControl beginRefreshing];
     [self.teamService refreshDataWithCompletion:^{
          [self.refreshControl endRefreshing];
@@ -62,6 +67,7 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.teamService.teams count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NPTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:NPTeamsCellIdentifier forIndexPath:indexPath];
