@@ -11,6 +11,8 @@
 #import "NPEmployeeService.h"
 #import "NPEmployeeCell.h"
 #import <NSData+Base64/NSData+Base64.h>
+#import "NPPaymentService.h"
+#import <CSNotificationView/CSNotificationView.h>
 
 @interface NPTeamViewController ()
 
@@ -52,8 +54,10 @@
     NSInteger hour = (NSInteger)floor(sender.value) / 60;
     NSInteger min = ((NSInteger)floor(roundf(sender.value))) % 60;
 
-    cell.hoursWorkedLabel.text = [NSString stringWithFormat:@"%d:%02d", hour, min];
-//    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    cell.hoursWorkedLabel.text = [NSString stringWithFormat:@"%ld:%02ld", (long)hour, (long)min];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSDictionary *employee = self.employees[indexPath.row];
+    [employee setValue:@(sender.value) forKey:@"minutesWorked"];
 }
 
 
@@ -65,6 +69,22 @@
 
 
 - (IBAction)payButtonTapped:(id)sender {
+
+    for (NSInteger i = 0; i < self.employees.count; i++) {
+        NSDictionary *employee = self.employees[i];
+        CGFloat minutesWorked = [employee[@"minutesWorked"] floatValue] ?: 1440;
+        CGFloat minutelyRate = [(NSString *)employee[@"hourlyRate"] floatValue] / 60;
+        CGFloat totalDue = (minutesWorked * minutelyRate) / 60;
+        NSString *amountString = [NSString stringWithFormat:@"%2f", totalDue];
+        NSDictionary *payment = @{@"paypalEmail": employee[@"emailAddress"],
+                                  @"amount": amountString,
+                                  @"phoneNumber": employee[@"phoneNumber"]};
+        [[NPPaymentService sharedService] addItem:payment completion:^{
+            if (i == self.employees.count -1) {
+                [CSNotificationView showInViewController:self style:CSNotificationViewStyleSuccess message:@"Successfully paid everyone!"];
+            }
+        }];
+    }
 }
 
 
