@@ -7,8 +7,9 @@
 //
 
 #import "NPAddTeamViewController.h"
+#import <NSData+Base64/NSData+Base64.h>
 
-@interface NPAddTeamViewController ()
+@interface NPAddTeamViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.teamService = [NPTeamService sharedService];
+
+    CALayer *layer = [self.imageView layer];
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:35.0];
 }
 
 - (IBAction)addButtonTapped:(id)sender {
@@ -24,9 +29,18 @@
         return;
     }
 
+    NSData *data = nil;
+    NSString *imageData = nil;
+    if (self.imageView.image != nil) {
+        UIImage *image = self.imageView.image;
+        data = UIImagePNGRepresentation(image);
+        imageData = [data base64EncodedString];
+    }
+
     NSDictionary *team = @{
-                           @"name" : self.teamNameTextField.text,
-                           @"type" : @"construction"
+                           @"name"  : self.teamNameTextField.text,
+                           @"type"  : @"construction",
+                           @"imageData" : imageData
                            };
 
     [self.teamService addItem:team completion:^(NSUInteger index) {
@@ -34,7 +48,32 @@
     }];
 
     self.teamNameTextField.text = @"";
+    self.imageView.image = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)addImageButtonTapped:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+#pragma mark -
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    CGSize newSize = CGSizeMake(400, 400);
+
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0,0, newSize.width, newSize.height)];
+    UIImage *small = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    self.imageView.image = small;
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -1,13 +1,16 @@
 PODS:
   - CSNotificationView (0.3.2)
+  - NSData+Base64 (1.0.0)
   - SSKeychain (1.2.1)
 
 DEPENDENCIES:
   - CSNotificationView
+  - NSData+Base64
   - SSKeychain
 
 SPEC CHECKSUMS:
   CSNotificationView: c9c85a1e357efedbb755c9387103f54bccfb7f20
+  NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
 COCOAPODS: 0.27.1

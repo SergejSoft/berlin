@@ -72,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppg-Lf-Zk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="401" y="-628"/>
+            <point key="canvasLocation" x="-60" y="-628"/>
         </scene>
         <!--Add Team View Controller - Add a team-->
         <scene sceneID="2QC-Hb-fW6">
@@ -99,8 +99,28 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okz-8t-fXb">
-                                <rect key="frame" x="254" y="153" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCd-uX-Q1p">
+                                <rect key="frame" x="230" y="161" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1s-5j-l6A">
+                                <rect key="frame" x="22" y="153" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pick image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addImageButtonTapped:" destination="mVu-d2-Sso" eventType="touchUpInside" id="XHN-1P-5RY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a team" id="KuI-1y-T4U">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="wCv-2g-zMG"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MEq-W1-PIO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okz-8t-fXb">
+                                <rect key="frame" x="274" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,19 +129,79 @@
                                     <action selector="addButtonTapped:" destination="mVu-d2-Sso" eventType="touchUpInside" id="jh6-kv-pHr"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add a team" id="KuI-1y-T4U">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="wCv-2g-zMG"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="GCd-uX-Q1p" id="JDp-Ga-w6B"/>
                         <outlet property="teamNameTextField" destination="1Fl-9Y-RSa" id="7na-8b-0kP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeV-F6-D5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="-628"/>
+            <point key="canvasLocation" x="401" y="-643"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YKa-Vr-brS">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Mnt-fI-diy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wst-hb-JEX">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Zzx-Xw-eS8" kind="relationship" relationship="rootViewController" id="uey-tg-Dio"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DxB-ej-grT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="-628"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="X81-do-FYs">
+            <objects>
+                <viewController id="Zzx-Xw-eS8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uup-xc-KJh"/>
+                        <viewControllerLayoutGuide type="bottom" id="7U7-4D-Pie"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjQ-Bi-38y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnS-d1-IBM">
+                                <rect key="frame" x="20" y="110" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hourly rate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ft8-8G-vZj">
+                                <rect key="frame" x="20" y="217" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yme-4o-Sbc">
+                                <rect key="frame" x="162" y="110" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paypal Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-4Z-3me">
+                                <rect key="frame" x="20" y="166" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KHY-qZ-NCq">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="vJU-Xs-A2A"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Mg9-hw-q7b"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCp-RO-sJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1411" y="-628"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XXO-Lg-EAa">
@@ -190,7 +270,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="70e-ya-bLO">
-                        <barButtonItem key="rightBarButtonItem" title="Select all" id="Cf6-K8-9pm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Cf6-K8-9pm">
+                            <connections>
+                                <segue destination="Mnt-fI-diy" kind="modal" id="bPH-WO-6th"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91r-72-9Ms" userLabel="First Responder" sceneMemberID="firstResponder"/>

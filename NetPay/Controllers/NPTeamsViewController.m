@@ -9,6 +9,7 @@
 #import "NPTeamsViewController.h"
 #import "NPTeamCell.h"
 #import <SSKeychain/SSKeychain.h>
+#import <NSData+Base64/NSData+Base64.h>
 
 static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
@@ -72,8 +73,20 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NPTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:NPTeamsCellIdentifier forIndexPath:indexPath];
 
-    cell.iconImageView.image = [UIImage imageNamed:@"Construction"];
-    cell.teamNameLabel.text = self.teamService.teams[indexPath.row][@"name"];
+    NSDictionary *team = self.teamService.teams[indexPath.row];
+    if (![(NSNull *)team[@"imageData"] isEqual:[NSNull null]]) {;
+        CALayer *layer = [cell.iconImageView layer];
+        [layer setMasksToBounds:YES];
+        [layer setCornerRadius:20.0];
+
+        NSData *data = [NSData dataFromBase64String:team[@"imageData"]];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        cell.iconImageView.image = image;
+    } else {
+        cell.iconImageView.image = [UIImage imageNamed:@"Construction"];
+    }
+    cell.teamNameLabel.text = team[@"name"];
 
     return cell;
 }

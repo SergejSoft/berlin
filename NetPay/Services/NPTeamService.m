@@ -68,11 +68,10 @@ static NSString *const NPTableNameTeams = @"Teams";
     [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
          [self logErrorIfNotNil:error];
 
-         NSUInteger index = [self.teams count];
-         [(NSMutableArray *)self.teams insertObject:result atIndex:index];
+        self.teams = [self.teams arrayByAddingObject:result];
 
          // Let the caller know that we finished
-         completion(index);
+         completion(self.teams.count);
      }];
 }
 
