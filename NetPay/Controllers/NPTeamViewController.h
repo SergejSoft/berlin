@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NPTeamViewController : UIViewController
+@interface NPTeamViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSDictionary *team;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

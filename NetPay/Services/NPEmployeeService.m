@@ -12,8 +12,6 @@ static NSString *const NPTableNameEmployees = @"Employees";
 
 @interface NPEmployeeService () <MSFilter>
 
-@property (nonatomic, strong) NSArray *employees;
-
 @end
 
 @implementation NPEmployeeService

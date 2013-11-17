@@ -16,7 +16,7 @@ typedef void (^NPBusyUpdateBlock) (BOOL busy);
 
 @interface NPEmployeeService : NPBaseService
 
-@property (nonatomic, strong)   NSArray *teams;
+@property (nonatomic, strong)   NSArray *employees;
 @property (nonatomic, strong)   MSClient *client;
 @property (nonatomic, copy)     NPBusyUpdateBlock busyUpdate;
 
