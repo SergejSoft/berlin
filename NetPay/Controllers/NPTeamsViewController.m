@@ -8,6 +8,7 @@
 
 #import "NPTeamsViewController.h"
 #import "NPTeamCell.h"
+#import <SSKeychain/SSKeychain.h>
 
 static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
@@ -28,11 +29,28 @@ static NSString *NPTeamsCellIdentifier = @"NPTeamsCellIdentifier";
 
     if (client.currentUser != nil) {
         return;
+    } else if ([self currentUser]) {
+        self.teamService.client.currentUser = [self currentUser];
+        [self refresh];
     } else {
-
         [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+            [SSKeychain setPassword:user.userId forService:@"NetPay" account:@"userId"];
+            [SSKeychain setPassword:user.mobileServiceAuthenticationToken forService:@"NetPay" account:@"authToken"];
             [self refresh];
         }];
+    }
+}
+
+- (MSUser *)currentUser {
+    NSString *userId = [SSKeychain passwordForService:@"NetPay" account:@"userId"];
+    NSString *authToken = [SSKeychain passwordForService:@"NetPay" account:@"authToken"];
+
+    if (userId && authToken) {
+        MSUser *user = [[MSUser alloc] initWithUserId:userId];
+        user.mobileServiceAuthenticationToken = authToken;
+        return user;
+    } else {
+        return nil;
     }
 }
 
